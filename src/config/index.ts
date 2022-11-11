@@ -12,7 +12,7 @@ curr = env.dev; // 这一步按到底是要有前置，去区分的，现在只�
 
 const devConfig: Config = {
   timeout: 5000,
-  baseURL: "www.baidu.com",
+  baseURL: "http://127.0.0.1",
 };
 
 // const uatConfig: Config = {

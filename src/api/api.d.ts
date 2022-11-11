@@ -6,6 +6,10 @@ declare namespace API {
     data: T;
     msg: string;
   }
+  // 查询账号
+  interface QueryUserName {
+    userName: string;
+  }
   // 注册
   interface Register {
     userName: string;
@@ -15,5 +19,10 @@ declare namespace API {
   interface Login {
     userName: string;
     password: string;
+  }
+
+  interface UpdateArticle {
+    title: string,
+    content: string
   }
 }
