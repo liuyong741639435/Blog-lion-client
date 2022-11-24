@@ -4,7 +4,7 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: "/",
     name: "index",
-    redirect: '/test',
+    redirect: '/user/login',
   },
   {
     path: "/test",
@@ -15,6 +15,12 @@ const routes: Array<RouteRecordRaw> = [
     path: '/edit',
     name: 'edit',
     component: () => import("@/views/edit/index.vue")
+  },
+  // user
+  { 
+    path: '/user/login',
+    name: 'login',
+    component: () => import("@/views/user/login/index.vue")
   }
 ];
 

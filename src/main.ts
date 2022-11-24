@@ -1,7 +1,12 @@
 import { createApp } from "vue";
-import "./style/index.css";
+import "./styles/index.css";
+import 'ant-design-vue/dist/antd.css';
 import App from "./App.vue";
 import router from "./router";
+import { useComponents } from "./utils/useComponents";
+
 
 const app = createApp(App);
-app.use(router).mount("#app");
+
+useComponents(app) // 按需引入ui
+app.use(router).mount("#app")

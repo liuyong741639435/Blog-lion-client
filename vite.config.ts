@@ -21,6 +21,16 @@ export default defineConfig({
       { find: "api", replacement: "/src/api" },
     ],
   },
+  css: {
+    preprocessorOptions: {
+      less: {
+        additionalData: `
+          @import "@/styles/variables.less";
+          @import "@/styles/mixins.less";
+        `
+      }
+    }
+  },
   base: "./", // 设置打包路径
   server: {
     port: 4000, // 设置服务启动端口号
