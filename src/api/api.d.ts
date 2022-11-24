@@ -19,6 +19,7 @@ declare namespace API {
   interface Login {
     userName: string;
     password: string;
+    remember: boolean;
   }
 
   interface UpdateArticle {
