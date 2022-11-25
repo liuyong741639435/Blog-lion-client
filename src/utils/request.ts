@@ -24,14 +24,15 @@ request.interceptors.request.use((config) => {
 
 // 响应拦截器
 request.interceptors.response.use((response) => {
+  const res = response.data; // 后端返回的数据
   // 通过网络状态码，做不同的处理
   switch (response.status) {
     case 200:
       // 1 获取token 根据后端返回数据的解构，取值。
       // 2 也可不在拦截器处理token存储，如果token在下线前不会过期，不需要重新更新token，只需要在登录或者其他接口得到token时处理就行，不需要在这里每次都查询一下是否有token
-      const token = response.data?.data.token;
+      const token = res.data?.token;
       if (token) setToken(token);
-      return response.data;
+      return res;
     case 401:
       Promise.reject("无权访问");
     // 响应的操作，如跳转到登录页面
