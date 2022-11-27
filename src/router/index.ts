@@ -12,7 +12,7 @@ const routes: Array<RouteRecordRaw> = [
     component: () => import("@/views/test/index.vue"),
   },
   { 
-    path: '/edit',
+    path: '/edit/drafts/:aId?',
     name: 'edit',
     component: () => import("@/views/edit/index.vue")
   },

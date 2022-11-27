@@ -56,13 +56,16 @@ export function useAccount() {
   // 点击submit 校验成功之后，会调用
   const submitRegisterDebounce = debounce(function () {
     buttonDisabled.value = true;
-    apiRegister(toRaw(formRegister))
+    apiRegister({
+      userName: formRegister.userName,
+      password: formRegister.password
+    })
       .then((res) => {
         if (res.code === 0) {
           message.success("注册成功");
           // rou
         } else {
-          message.warning("注册失败");
+          message.warning(res.msg);
         }
       })
       .catch((err) => console.error(err))
@@ -100,13 +103,16 @@ export function useAccount() {
     const data = toRaw(formLogin);
     setLogin(data);
     buttonDisabled.value = true
-    apiLogin(data)
+    apiLogin({
+      userName: formLogin.userName,
+      password: formLogin.password
+    })
       .then((res) => {
         if (res.code === 0) {
           message.success("登录成功");
           router.push("/");
         } else {
-          message.warning("登录失败");
+          message.warning(res.msg);
         }
       })
       .catch((err) => console.error(err))

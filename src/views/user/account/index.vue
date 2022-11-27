@@ -17,7 +17,7 @@ const {
 </script>
 <template>
   <div class="content">
-    <!-- <img class="bg" /> -->
+    <img class="bg" src="@/assets/loginBg.png" />
     <div
       :class="`register ${pageState === AccountPage.REGISTER ? '' : 'hide'}`"
     >
@@ -28,7 +28,7 @@ const {
         name="basic"
         autocomplete="off"
         :rules="rules"
-        @finish="submitLoginDebounce"
+        @finish="submitRegisterDebounce"
       >
         <a-form-item name="userName">
           <a-input v-model:value="formRegister.userName">
@@ -104,9 +104,10 @@ const {
 </template>
 <style lang="less" scoped>
 .content {
-  width: 1000px;
+  width: 800px;
   background-color: #fff;
-  min-height: 500px;
+  border-radius: 10px;
+  overflow: hidden;
   position: absolute;
   left: 50%;
   top: 50%;
@@ -143,6 +144,11 @@ const {
     font-size: 12px;
     top: 20px;
     right: 20px;
+  }
+
+  .bg {
+    width: 100%;
+    height: 100%;
   }
 }
 </style>

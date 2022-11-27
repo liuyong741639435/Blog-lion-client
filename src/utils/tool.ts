@@ -1,3 +1,4 @@
+import md5 from 'md5';
 // 防抖
 // cb回调 s 延时毫秒 start 是否调用立刻执行
 export function debounce(cb: Function, s = 100, start = true) {
@@ -10,7 +11,7 @@ export function debounce(cb: Function, s = 100, start = true) {
                 cb()
                 time = setTimeout(() => {
                     time = null
-                })
+                }, s)
             }
         }
     } else {
@@ -24,7 +25,12 @@ export function debounce(cb: Function, s = 100, start = true) {
             time = setTimeout(() => {
                 cb()
                 time = null
-            })
+            }, s)
         }
     }
+}
+
+// MD5摘要
+export function MD5(str: string) {
+    return md5(str)
 }

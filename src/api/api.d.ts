@@ -19,11 +19,20 @@ declare namespace API {
   interface Login {
     userName: string;
     password: string;
-    remember: boolean;
   }
 
-  interface UpdateArticle {
+  interface GetArticle {
+    aId: string,
+  }
+
+  interface EditArticle {
+    aId?: string,
     title: string,
     content: string
+  }
+
+  interface SetArticleState {
+    aId: string,
+    state: ArticleState
   }
 }
