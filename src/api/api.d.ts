@@ -24,6 +24,10 @@ declare namespace API {
   interface GetArticle {
     aId: string,
   }
+  // todo 后续用搜索代替
+  interface GetArticleList {
+
+  }
 
   interface EditArticle {
     aId?: string,

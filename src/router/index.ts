@@ -18,7 +18,7 @@ const routes: Array<RouteRecordRaw> = [
   },
   // user
   { 
-    path: '/user/account/:state?',
+    path: '/user/account/:pageState?',
     name: 'account',
     component: () => import("@/views/user/account/index.vue")
   }

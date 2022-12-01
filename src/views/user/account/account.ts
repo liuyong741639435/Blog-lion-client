@@ -58,7 +58,7 @@ export function useAccount() {
     buttonDisabled.value = true;
     apiRegister({
       userName: formRegister.userName,
-      password: formRegister.password
+      password: formRegister.password,
     })
       .then((res) => {
         if (res.code === 0) {
@@ -102,15 +102,16 @@ export function useAccount() {
   const submitLoginDebounce = debounce(function () {
     const data = toRaw(formLogin);
     setLogin(data);
-    buttonDisabled.value = true
+    buttonDisabled.value = true;
     apiLogin({
       userName: formLogin.userName,
-      password: formLogin.password
+      password: formLogin.password,
     })
       .then((res) => {
         if (res.code === 0) {
           message.success("登录成功");
-          router.push("/");
+          
+          router.push("/edit/drafts");
         } else {
           message.warning(res.msg);
         }

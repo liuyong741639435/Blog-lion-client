@@ -1,6 +1,9 @@
 import axios from "axios";
 import { setToken, getToken } from "./token";
 import config from "../config";
+import { useRouter } from "vue-router";
+
+const router = useRouter()
 
 const request = axios.create({
   baseURL: config.baseURL,
@@ -28,16 +31,14 @@ request.interceptors.response.use((response) => {
   // 通过网络状态码，做不同的处理
   switch (response.status) {
     case 200:
-      // 1 获取token 根据后端返回数据的解构，取值。
-      // 2 也可不在拦截器处理token存储，如果token在下线前不会过期，不需要重新更新token，只需要在登录或者其他接口得到token时处理就行，不需要在这里每次都查询一下是否有token
-      const token = res.data?.token;
-      if (token) setToken(token);
       return res;
     case 401:
       Promise.reject("无权访问");
+      router.push('/user/account/login')
     // 响应的操作，如跳转到登录页面
     case 403:
       Promise.reject("token认证失败");
+      router.push('/user/account/login')
     // 重新登录，或者重新获取token
     default:
       Promise.reject("未知错误");
