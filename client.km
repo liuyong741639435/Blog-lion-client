@@ -1,0 +1,106 @@
+{
+    "root": {
+        "data": {
+            "id": "cor59tgjsao0",
+            "created": 1669965242453,
+            "text": "..."
+        },
+        "children": [
+            {
+                "data": {
+                    "id": "cor5a2du2dk0",
+                    "created": 1669965261880,
+                    "text": "user",
+                    "expandState": "expand"
+                },
+                "children": [
+                    {
+                        "data": {
+                            "id": "cor5a5nmjdc0",
+                            "created": 1669965269002,
+                            "text": "account",
+                            "expandState": "expand"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "cor5bexaq0g0",
+                                    "created": 1669965367542,
+                                    "text": "login"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "cor5bgnopfs0",
+                                    "created": 1669965371314,
+                                    "text": "register"
+                                },
+                                "children": []
+                            }
+                        ]
+                    },
+                    {
+                        "data": {
+                            "id": "cor5en0ay3c0",
+                            "created": 1669965620230,
+                            "text": "create"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "cor5eq5fzhs0",
+                                    "created": 1669965627072,
+                                    "text": "articleList"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "cor5f1u81w00",
+                                            "created": 1669965652515,
+                                            "text": "edit"
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "data": {
+                    "id": "cor5ac37yt40",
+                    "created": 1669965283006,
+                    "text": "home",
+                    "layout_mind_offset": {
+                        "x": -26,
+                        "y": 21
+                    }
+                },
+                "children": [
+                    {
+                        "data": {
+                            "id": "cor5fnr9zwg0",
+                            "created": 1669965700226,
+                            "text": "search"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "cor5fqsyhts0",
+                                    "created": 1669965706858,
+                                    "text": "article"
+                                },
+                                "children": []
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    "template": "default",
+    "theme": "fresh-blue",
+    "version": "1.4.43"
+}
