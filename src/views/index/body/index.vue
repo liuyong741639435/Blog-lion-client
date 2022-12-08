@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { useData } from "./body";
+import { useHooks } from "./hooks";
 
-const { getArticleList } = useData();
+const { getArticleList } = useHooks();
 getArticleList();
 </script>
 <template>

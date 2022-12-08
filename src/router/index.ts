@@ -28,6 +28,11 @@ const routes: Array<RouteRecordRaw> = [
     name: "account",
     component: () => import("@/views/user/account/index.vue"),
   },
+  {
+    path: "/article/:aId",
+    name: "article",
+    component: () => import("@/views/article/index.vue"),
+  },
 ];
 
 export default createRouter({

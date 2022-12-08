@@ -1,3 +1,4 @@
+import { ArticleListItem } from "../types/article";
 import request from "../utils/request";
 
 export const ApiGetArticle = (data: API.GetArticle) =>
@@ -20,9 +21,6 @@ export const ApiSetArticleState = (data: API.SetArticleState) =>
   );
 
 export const ApiGetArticleList = (data: API.GetArticleList) =>
-  request.get<any, API.Response<{ title: string; content: string }>>(
-    "/article/getArticleList",
-    {
-      params: data,
-    }
-  );
+  request.get<any, API.Response<ArticleListItem[]>>("/article/getArticleList", {
+    params: data,
+  });
