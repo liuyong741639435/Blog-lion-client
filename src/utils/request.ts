@@ -1,9 +1,7 @@
 import axios from "axios";
-import { setToken, getToken } from "./token";
+import { getToken } from "./token";
 import config from "../config";
-import { useRouter } from "vue-router";
-
-const router = useRouter()
+import router from "../router";
 
 const request = axios.create({
   baseURL: config.baseURL,
@@ -26,23 +24,25 @@ request.interceptors.request.use((config) => {
 });
 
 // 响应拦截器
-request.interceptors.response.use((response) => {
-  const res = response.data; // 后端返回的数据
-  // 通过网络状态码，做不同的处理
-  switch (response.status) {
-    case 200:
-      return res;
-    case 401:
-      Promise.reject("无权访问");
-      router.push('/user/account/login')
-    // 响应的操作，如跳转到登录页面
-    case 403:
-      Promise.reject("token认证失败");
-      router.push('/user/account/login')
-    // 重新登录，或者重新获取token
-    default:
-      Promise.reject("未知错误");
+request.interceptors.response.use(
+  (response) => {
+    return response.data; // 后端返回的数据
+  },
+  (error) => {
+    // 当http状态码 不是 200-300 就会走这里
+    switch (error.response.status) {
+      case 401:
+        Promise.reject("无权访问");
+        router.push("/user/account/login");
+      // 响应的操作，如跳转到登录页面
+      case 403:
+        Promise.reject("token认证失败");
+        router.push("/user/account/login");
+      // 重新登录，或者重新获取token
+      default:
+        Promise.reject("未知错误");
+    }
   }
-});
+);
 
 export default request;

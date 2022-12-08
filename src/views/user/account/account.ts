@@ -5,6 +5,7 @@ import { debounce } from "../../../utils/tool";
 import { message } from "ant-design-vue";
 import { useRoute, useRouter } from "vue-router";
 import { AccountPage } from "../../../types/user";
+import { setToken } from "../../../utils/token";
 
 // 校验配置
 const rules = {
@@ -110,7 +111,7 @@ export function useAccount() {
       .then((res) => {
         if (res.code === 0) {
           message.success("登录成功");
-          
+          setToken(res.data.token);
           router.push("/edit/drafts");
         } else {
           message.warning(res.msg);
