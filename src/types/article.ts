@@ -8,8 +8,9 @@ export interface ArticleListItem {
   title: string;
   briefIntroduction: string; // 简介
   nickName: string;
+  iconUrl: string;
   userId: string;
-  aid: string;
-  date: number;
+  aId: string;
+  updateDate: number;
   // 后续还有标签等
 }

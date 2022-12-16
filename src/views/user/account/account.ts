@@ -111,7 +111,7 @@ export function useAccount() {
       .then((res) => {
         if (res.code === 0) {
           message.success("登录成功");
-          setToken(res.data.token);
+          setToken(res.data?.token ?? "");
           router.push("/edit/drafts");
         } else {
           message.warning(res.msg);
