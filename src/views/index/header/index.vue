@@ -20,6 +20,10 @@ function change(index: number) {
 <template>
   <div class="header">
     <div class="centent">
+      <a class="logo">
+        <img src="" alt="" srcset="">
+        logo
+      </a>
       <nav-bar :navList="navList" :activeIndex="activeIndex" @change="change" />
     </div>
   </div>
@@ -33,6 +37,12 @@ function change(index: number) {
     max-width: 1440px;
     margin: 0 auto;
     height: 60px;
+
+    display: flex;
+
+    .logo {
+      width: 100px;
+    }
   }
 }
 </style>

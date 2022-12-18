@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import '@wangeditor/editor/dist/css/style.css' // 引入 css
 import { Editor } from "@wangeditor/editor-for-vue";
 import { useHooks } from "./hooks";
 import { useRoute } from "vue-router";

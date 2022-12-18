@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import '@wangeditor/editor/dist/css/style.css' // 引入 css
 import { Editor, Toolbar } from '@wangeditor/editor-for-vue'
-import { useApi, useWangeEdit } from '../edit/editTs';
+import { useApi, useWangeEdit } from './hooks';
 const {
   editorRef,
   toolbarConfig,

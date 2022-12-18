@@ -15,8 +15,9 @@ export function useHooks() {
     })
       .then((res) => {
         if (res.code === 0) {
-          title = res.data.title;
-          contentHtml.value = res.data.content;
+          title = res.data?.title ?? '';
+          contentHtml.value = res.data?.content ?? '';
+          console.log(title)
         }
       })
       .catch((err) => console.error(err));

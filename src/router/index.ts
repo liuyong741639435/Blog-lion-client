@@ -33,6 +33,11 @@ const routes: Array<RouteRecordRaw> = [
     name: "article",
     component: () => import("@/views/article/index.vue"),
   },
+  {
+    path: "/user/personal/:userId?",
+    name: "personal",
+    component: () => import("@/views/user/personal/index.vue"),
+  },
 ];
 
 export default createRouter({
