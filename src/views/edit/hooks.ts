@@ -2,11 +2,11 @@ import { message } from "ant-design-vue";
 import { onBeforeUnmount, ref, Ref, shallowRef, watch } from "vue";
 import { useRoute, useRouter } from "vue-router";
 import {
-  ApiGetArticle,
+  ApiGetArticleByUser,
   ApiSetArticleState,
   ApiEditArticle,
 } from "../../api/article";
-import { ArticleState } from "../../types/Article";
+import { ArticleState } from "../../types/article";
 import { debounce } from "../../utils/tool";
 
 export function useWangeEdit() {
@@ -14,7 +14,9 @@ export function useWangeEdit() {
   const editorRef = shallowRef();
   // 内容HTML
   const toolbarConfig = {};
-  const editorConfig = { placeholder: "请输入内容..." };
+  const editorConfig = {
+    placeholder: "请输入内容...",
+  };
   const handleCreated = (editor: any) => {
     editorRef.value = editor; // 记录 editor 实例，重要！
   };
@@ -41,17 +43,17 @@ export function useApi() {
   let aId = route.params.aId as string;
   const title = ref("");
   const contentHtml = ref("<p><br></p>");
-  const router = useRouter()
+  const router = useRouter();
 
   // 获取文章详情
   function getArticle(aId: string, title: Ref<string>, content: Ref<string>) {
-    ApiGetArticle({
+    ApiGetArticleByUser({
       aId,
     })
       .then((res) => {
-        if (res.code) {
-          title.value = res.data?.title;
-          content.value = res.data?.content;
+        if (res.code === 0) {
+          title.value = res.data?.title ?? "";
+          content.value = res.data?.content ?? "";
         }
       })
       .catch((err) => console.error(err));
@@ -66,8 +68,8 @@ export function useApi() {
       .then((res) => {
         if (res.code === 0) {
           if (res.data?.aId) {
-            aId = res.data.aId
-            router.push(`/edit/drafts/${aId}`)
+            aId = res.data.aId;
+            router.push(`/edit/drafts/${aId}`);
           }
         }
       })

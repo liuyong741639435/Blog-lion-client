@@ -5,7 +5,7 @@ const props = defineProps<{ navList: navListItem[], activeIndex: number }>()
 
 const emit = defineEmits(['change'])
 
-function change(index) {
+function change(index: number) {
     if (props.activeIndex !== index)
         emit('change', index)
 }

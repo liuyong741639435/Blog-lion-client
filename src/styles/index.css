@@ -39,3 +39,7 @@ body {
 ul {
   list-style:none;
 }
+
+.pointer {
+  cursor: pointer;
+}

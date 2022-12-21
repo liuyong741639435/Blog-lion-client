@@ -1,7 +1,7 @@
 <script setup lang="ts">
 // icon图标
 import { UserOutlined, LockOutlined } from "@ant-design/icons-vue";
-import { useAccount } from "./account";
+import { useAccount } from "./hooks";
 import { AccountPage } from "../../../types/user";
 
 const {
