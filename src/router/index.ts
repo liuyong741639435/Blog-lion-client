@@ -1,4 +1,5 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
+import cancelToken from "../utils/cancelToken";
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -34,8 +35,17 @@ const routes: Array<RouteRecordRaw> = [
     component: () => import("@/views/article/index.vue"),
   },
 ];
+//
 
-export default createRouter({
+const router = createRouter({
   history: createWebHistory(),
   routes,
 });
+
+// 全局后置钩子
+router.afterEach((to, from) => {
+  // 离开页面时
+  cancelToken.cancelAll(); // 取消所有未返回的ajax请求
+});
+
+export default router;

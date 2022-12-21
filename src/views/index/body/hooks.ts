@@ -9,7 +9,7 @@ export function useHooks() {
       .then((res) => {
         console.log(res);
         if (res.code === 0) {
-          articleList.value = res.data;
+          articleList.value = res.data!;
         }
       })
       .catch((err) => console.error(err))
