@@ -39,9 +39,10 @@ export function useWangeEdit() {
 }
 
 export function useApi() {
+  const tips = ref("");
   const route = useRoute();
   let aId = route.params.aId as string;
-  const title = ref("");
+  const title = ref("title");
   const contentHtml = ref("<p><br></p>");
   const router = useRouter();
 
@@ -60,6 +61,7 @@ export function useApi() {
   }
   // 更新
   async function editArticle() {
+    tips.value = "保存中...";
     ApiEditArticle({
       aId,
       title: title.value,
@@ -67,13 +69,17 @@ export function useApi() {
     })
       .then((res) => {
         if (res.code === 0) {
+          tips.value = "保存至草稿箱";
           if (res.data?.aId) {
             aId = res.data.aId;
             router.push(`/edit/drafts/${aId}`);
           }
+        } else {
+          tips.value = "保存失败";
         }
       })
       .catch((err) => {
+        tips.value = "保存失败";
         console.error(err);
       });
   }
@@ -103,5 +109,6 @@ export function useApi() {
     getArticle,
     editArticle,
     publishArticle,
+    tips,
   };
 }

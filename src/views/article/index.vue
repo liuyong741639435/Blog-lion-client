@@ -1,21 +1,38 @@
 <script setup lang="ts">
-import '@wangeditor/editor/dist/css/style.css' // 引入 css
+import "@wangeditor/editor/dist/css/style.css"; // 引入 css
 import { Editor } from "@wangeditor/editor-for-vue";
 import { useHooks } from "./hooks";
 import { useRoute } from "vue-router";
 
+import comments from "./comments/index.vue";
+
 const route = useRoute();
-const { mode, contentHtml, editorConfig, getArticle } = useHooks();
+const { mode, contentHtml, title, editorConfig, getArticle } = useHooks();
 
 getArticle(route.params.aId as string);
 </script>
 <template>
-  <div style="border: 1px solid #ccc">
-    <Editor
-      style="overflow-y: hidden"
-      v-model="contentHtml"
-      :defaultConfig="editorConfig"
-      :mode="mode"
-    />
+  <div class="article">
+    <h1>{{ title }}</h1>
+    <div class="editor">
+      <Editor
+        v-model="contentHtml"
+        :defaultConfig="editorConfig"
+        :mode="mode"
+      />
+    </div>
+    <div class="comments">
+      <comments :aId="route.params.aId" />
+    </div>
   </div>
 </template>
+<style lang="less" scoped>
+.article {
+  width: 1200px;
+  margin: 0 auto;
+  background-color: #fff;
+  .editor {
+    height: calc(100vh - 140px);
+  }
+}
+</style>

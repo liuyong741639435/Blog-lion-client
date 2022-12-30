@@ -34,9 +34,19 @@ export const apiGetUserRelations = (data: { userId?: string }) =>
   );
 // 读取评论
 export const apiGetComment = (data: { aId: string }) =>
-  request.get<any, API.Response<CommentListItem>>(
+  request.get<any, API.Response<CommentListItem[]>>(
     "/interactionBetweenUsers/getComment",
     {
       params: data,
     }
+  );
+// 发表评论
+export const apiComment = (data: {
+  aId: string;
+  content: string;
+  parentId?: string;
+}) =>
+  request.post<any, API.Response>(
+    "/interactionBetweenUsers/comment",
+    JSON.stringify(data)
   );

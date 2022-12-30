@@ -27,9 +27,9 @@ export default defineConfig({
         additionalData: `
           @import "@/styles/variables.less";
           @import "@/styles/mixins.less";
-        `
-      }
-    }
+        `,
+      },
+    },
   },
   base: "./", // 设置打包路径
   server: {
@@ -39,10 +39,10 @@ export default defineConfig({
 
     // 设置代理，根据我们项目实际情况配置
     proxy: {
-      '/api': {
-        target: 'http://127.0.0.1',
+      "/api": {
+        target: "http://127.0.0.1:801",
         changeOrigin: true,
-      }
-    }
+      },
+    },
   },
 });

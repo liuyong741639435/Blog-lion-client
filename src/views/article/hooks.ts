@@ -2,7 +2,7 @@ import { ref } from "vue";
 import { ApiGetArticle } from "../../api/article";
 
 export function useHooks() {
-  let title = "";
+  let title = ref("");
   let contentHtml = ref("");
 
   const editorConfig = {
@@ -15,7 +15,7 @@ export function useHooks() {
     })
       .then((res) => {
         if (res.code === 0) {
-          title = res.data?.title ?? "";
+          title.value = res.data?.title ?? "";
           contentHtml.value = res.data?.content ?? "";
         }
       })
@@ -26,6 +26,7 @@ export function useHooks() {
     mode: "default", // 或 'simple'
     editorConfig,
     contentHtml,
+    title,
     getArticle,
   };
 }
