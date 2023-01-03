@@ -1,6 +1,7 @@
 import { defineConfig } from "vite";
 import vue from "@vitejs/plugin-vue";
 import { viteMockServe } from "vite-plugin-mock";
+import viteCompression from "vite-plugin-compression";
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -8,6 +9,14 @@ export default defineConfig({
     vue(),
     viteMockServe({
       supportTs: true,
+    }),
+    viteCompression({
+      verbose: true, // 默认即可
+      disable: false, //开启压缩(不禁用)，默认即可
+      deleteOriginFile: false, //删除源文件
+      threshold: 10240, //压缩前最小文件大小
+      algorithm: "gzip", //压缩算法
+      ext: ".gz", //文件类型
     }),
   ],
   resolve: {
@@ -31,7 +40,7 @@ export default defineConfig({
       },
     },
   },
-  base: "./", // 设置打包路径
+  base: "/", // 设置打包路径 ./
   server: {
     port: 4000, // 设置服务启动端口号
     // open: true, // 设置服务启动时是否自动打开浏览器

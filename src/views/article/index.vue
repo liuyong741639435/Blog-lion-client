@@ -9,6 +9,10 @@ import comments from "./comments/index.vue";
 const route = useRoute();
 const { mode, contentHtml, title, editorConfig, getArticle } = useHooks();
 
+const aId = Array.isArray(route.params.aId)
+  ? route.params.aId[0]
+  : route.params.aId;
+
 getArticle(route.params.aId as string);
 </script>
 <template>
@@ -22,7 +26,7 @@ getArticle(route.params.aId as string);
       />
     </div>
     <div class="comments">
-      <comments :aId="route.params.aId" />
+      <comments :aId="aId" />
     </div>
   </div>
 </template>
