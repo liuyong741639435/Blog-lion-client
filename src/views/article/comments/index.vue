@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { useHooks } from "./hooks";
-const { commentList, getComment, commentText } = useHooks();
+import { useComments } from "./comments";
+const { commentList, getComment, commentText } = useComments();
 
 const props = defineProps<{ aId: string }>();
 getComment(props.aId);

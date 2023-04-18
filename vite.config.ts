@@ -49,7 +49,11 @@ export default defineConfig({
     // 设置代理，根据我们项目实际情况配置
     proxy: {
       "/api": {
-        target: "http://127.0.0.1:801",
+        target: "http://127.0.0.1:80",
+        changeOrigin: true,
+      },
+      "/upload": {
+        target: "http://127.0.0.1:80",
         changeOrigin: true,
       },
     },

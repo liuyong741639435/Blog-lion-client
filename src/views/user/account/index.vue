@@ -1,7 +1,7 @@
 <script setup lang="ts">
 // icon图标
 import { UserOutlined, LockOutlined } from "@ant-design/icons-vue";
-import { useAccount } from "./hooks";
+import { useAccount } from "./account";
 import { AccountPage } from "../../../types/user";
 
 const {
@@ -14,6 +14,7 @@ const {
   rules,
   buttonDisabled,
 } = useAccount();
+const width = "100px";
 </script>
 <template>
   <div class="content">

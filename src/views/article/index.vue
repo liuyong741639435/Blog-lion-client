@@ -1,13 +1,13 @@
 <script setup lang="ts">
 import "@wangeditor/editor/dist/css/style.css"; // 引入 css
 import { Editor } from "@wangeditor/editor-for-vue";
-import { useHooks } from "./hooks";
+import { useArticle } from "./article";
 import { useRoute } from "vue-router";
 
 import comments from "./comments/index.vue";
 
 const route = useRoute();
-const { mode, contentHtml, title, editorConfig, getArticle } = useHooks();
+const { mode, contentHtml, title, editorConfig, getArticle } = useArticle();
 
 const aId = Array.isArray(route.params.aId)
   ? route.params.aId[0]

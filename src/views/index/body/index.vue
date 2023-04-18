@@ -1,11 +1,7 @@
 <script setup lang="ts">
 import { formatTime } from "../../../utils/tool";
-import { useHooks } from "./hooks";
-const {
-  getArticleList,
-  articleList,
-  toUser,
-  toArticle } = useHooks();
+import { useBody } from "./body";
+const { getArticleList, articleList, toUser, toArticle } = useBody();
 getArticleList();
 </script>
 <template>
@@ -13,11 +9,18 @@ getArticleList();
     <div class="content">
       <div v-for="item of articleList" :key="item.aId">
         <div class="head">
-          <div class="pointer" @click="toUser(item.userId)">{{ item.nickName }}</div>
-          |<div class="pointer" @click="toArticle(item.aId)"><span >{{ formatTime(item.updateDate) }}</span></div>
+          <div class="pointer" @click="toUser(item.userId)">
+            {{ item.nickName }}
+          </div>
+          |
+          <div class="pointer" @click="toArticle(item.aId)">
+            <span>{{ formatTime(item.updateDate) }}</span>
+          </div>
         </div>
-        <div class="pointer"  @click="toArticle(item.aId)">{{ item.title }}</div>
-        <div class="pointer"  @click="toArticle(item.aId)">{{ item.briefIntroduction }}</div>
+        <div class="pointer" @click="toArticle(item.aId)">{{ item.title }}</div>
+        <div class="pointer" @click="toArticle(item.aId)">
+          {{ item.briefIntroduction }}
+        </div>
       </div>
     </div>
   </div>

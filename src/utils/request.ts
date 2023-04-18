@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios, { AxiosRequestConfig } from "axios";
 import { getToken } from "./token";
 import config from "../config";
 import router from "../router";
@@ -46,12 +46,10 @@ request.interceptors.response.use(
     return response.data; // 后端返回的数据
   },
   (error) => {
-    // 取消令牌
-    const key = createdUrl(error.config);
-    cancelToken.cancel(key);
-    // end
+    console.log("error: ", error);
+
     // 当http状态码 不是 200-300 就会走这里
-    switch (error.response.status) {
+    switch (error.response?.status) {
       case 401:
         router.push("/user/account/login");
       // 响应的操作，如跳转到登录页面

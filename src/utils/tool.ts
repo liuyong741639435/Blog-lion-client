@@ -1,4 +1,5 @@
 import md5 from "md5";
+// import { useDebounceFn } from "@vueuse/core";
 // 防抖
 // cb回调 s 延时毫秒 start 是否调用立刻执行
 export function debounce(cb: Function, s = 100, start = true) {
@@ -37,7 +38,7 @@ export function MD5(str: string) {
 
 // 时间格式
 export function formatTime(value: number) {
-  const time =  (new Date().getTime() - value) / 1000;
+  const time = (new Date().getTime() - value) / 1000;
   // 年
   // 月
   // 星期
@@ -56,7 +57,7 @@ export function formatTime(value: number) {
   if (time > 60 * 60 * 24) {
     return `${Math.floor(time / (60 * 60 * 24))}日前`;
   }
-  if (time > 60  * 60) {
+  if (time > 60 * 60) {
     return `${Math.floor(time / (60 * 60))}小时前`;
   }
   if (time > 60) {
