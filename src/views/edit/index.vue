@@ -11,7 +11,10 @@ const { title, contentHtml, publishArticle, tips } = useApi();
 <template>
   <div class="edit">
     <div class="title">
-      <a-input v-model:value="title" placeholder="请输入标题" />
+      <a-input
+        v-model:value="title"
+        placeholder="请输入标题"
+      />
       <span class="tips">{{ tips }}</span>
       <div class="btn">
         <a-button>草稿箱</a-button>

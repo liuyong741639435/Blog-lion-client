@@ -7,11 +7,6 @@ const routes: Array<RouteRecordRaw> = [
     name: "",
     redirect: "/index",
   },
-  {
-    path: "/test",
-    name: "test",
-    component: () => import("@/views/test/index.vue"),
-  },
   // 首页
   {
     path: "/index",
